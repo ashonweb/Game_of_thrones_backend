@@ -8,7 +8,9 @@ const bodyParser = require('body-parser');
 const postRoute = require('./routes/posts');
 const charactersRoute = require('./routes/characters');
 const deatilsnoblehouseRoute = require('./routes/details');
-const triviaRoute = require('./routes/trivias')
+const triviaRoute = require('./routes/trivias');
+const friendsfoesRoute = require('./routes/friends_foes');
+const whitewalkerRoute = require('./routes/whitewalkers')
 app.use(cors())
 app.use(bodyParser.json())
 app.use ( bodyParser.urlencoded( {extended: true} ) );
@@ -33,6 +35,8 @@ app.use('/posts',postRoute)
 app.use('/characters',charactersRoute)
 app.use('/details',deatilsnoblehouseRoute)
 app.use('/trivia',triviaRoute)
+app.use('/friendsfoes',friendsfoesRoute)
+app.use('/walkers',whitewalkerRoute)
 
 
 
