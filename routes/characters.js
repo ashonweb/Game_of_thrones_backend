@@ -49,9 +49,14 @@ router.get('/',async (req,res)=>{
     // res.json("hjjj")
     try {
         var q = req.query;
-        console.log(q.name)
+        console.log(q.house)
         if(q.name){
-             const getdetails1 = await Post.findOne({name:q.name})
+            const getdetails1 = await Post.find({name:q.name})
+        console.log("foud")
+       res.json(getdetails1);
+       }
+        else if(q.house){
+             const getdetails1 = await Post.find({house:q.house})
          console.log("foud")
         res.json(getdetails1);
         }
@@ -79,7 +84,7 @@ router.post('/',upload.single('characters'),async (req,res)=>{
         description: req.body.description,
         house: req.body.house,
         alias:req.body.alias,
-        children:ewq.body.children,
+        children:req.body.children,
         father:req.body.father,
         mother:req.body.mother,
         spouse:req.body.spouse,

@@ -7,6 +7,7 @@ require('dotenv/config');
 const bodyParser = require('body-parser');
 const postRoute = require('./routes/posts');
 const charactersRoute = require('./routes/characters');
+const deatilsnoblehouseRoute = require('./routes/details');
 app.use(cors())
 app.use(bodyParser.json())
 app.use ( bodyParser.urlencoded( {extended: true} ) );
@@ -29,6 +30,7 @@ mongoose.connect(process.env.DB_CONNECTION,  { useUnifiedTopology: true },err =>
 
 app.use('/posts',postRoute)
 app.use('/characters',charactersRoute)
+app.use('/details',deatilsnoblehouseRoute)
 
 
 
