@@ -21,6 +21,12 @@ const PostSchema = mongoose.Schema({
     logo:{
         type: String,
         required: true,
+    },
+    q :{
+        type: Array, "default" : []
+    },
+    qa: {
+        type: Array, "default" : []
     }
 })
 

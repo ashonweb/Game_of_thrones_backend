@@ -29,7 +29,7 @@ const upload = multer({
     fileFilter : fileFilter,
     });
 
-const Post = require('../models/Post');
+const Post = require('../models/Characters');
 
 
 
@@ -49,9 +49,9 @@ router.get('/',async (req,res)=>{
     // res.json("hjjj")
     try {
         var q = req.query;
-        console.log(q.house)
-        if(q.house){
-             const getdetails1 = await Post.findOne({house:q.house})
+        console.log(q.name)
+        if(q.name){
+             const getdetails1 = await Post.findOne({name:q.name})
          console.log("foud")
         res.json(getdetails1);
         }
@@ -70,14 +70,28 @@ router.get('/',async (req,res)=>{
 });
 
 //Post details
-router.post('/',upload.single('logo'),async (req,res)=>{
+router.post('/',upload.single('characters'),async (req,res)=>{
     console.log('inside post')
     console.log(req.file);
     var post = new Post({
         name: req.body.name,
+        realname:req.body.realname,
         description: req.body.description,
         house: req.body.house,
-        logo:req.file.path,
+        alias:req.body.alias,
+        children:ewq.body.children,
+        father:req.body.father,
+        mother:req.body.mother,
+        spouse:req.body.spouse,
+        titles:req.body.titles,
+        culture:req.body.culture,
+        firstseen:req.body.firstseen,
+        lastseen:req.body.lastseen,
+        origin:req.body.origin,
+        siblings:req.body.siblings,
+        status:req.body.status,
+        religin:req.body.religin,
+        characters:req.file.path,
     });
 
     // post.save((err) => {

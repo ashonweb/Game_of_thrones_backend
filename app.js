@@ -6,10 +6,12 @@ const cors = require('cors')
 require('dotenv/config');
 const bodyParser = require('body-parser');
 const postRoute = require('./routes/posts');
+const charactersRoute = require('./routes/characters');
 app.use(cors())
 app.use(bodyParser.json())
 app.use ( bodyParser.urlencoded( {extended: true} ) );
 app.use ( express.static( __dirname + '/public') );
+app.use('/upload',express.static('upload'))
 // mongoose.connect(
 //     process.env.DB_CONNECTION,
 //     {useMongoclient:true,useUnifiedTopology: true,useNewUrlParser: true,},
@@ -26,6 +28,8 @@ mongoose.connect(process.env.DB_CONNECTION,  { useUnifiedTopology: true },err =>
 // })
 
 app.use('/posts',postRoute)
+app.use('/characters',charactersRoute)
+
 
 
 app.get('/',(req,res)=>{
