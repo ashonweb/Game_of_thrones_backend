@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const Swornhouses = mongoose.Schema({
+const SwornhousesSchema = mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -71,4 +71,4 @@ const Swornhouses = mongoose.Schema({
   
 })
 
-module.exports = mongoose.model('swornhouses', Swornhouses)
+module.exports = mongoose.model('swonhouses', SwornhousesSchema)
