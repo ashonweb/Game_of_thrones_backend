@@ -88,8 +88,8 @@ router.get('/',async (req,res)=>{
     try {
         var q = req.query;
         console.log(q.house)
-        if(q.house){
-             const getdetails1 = await Post.findOne({house:q.house})
+        if(q.type){
+             const getdetails1 = await Post.find({type:q.type})
          console.log("foud")
         res.json(getdetails1);
         }
